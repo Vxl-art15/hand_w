@@ -21,14 +21,14 @@ def predictDigit(image):
     return result
 
 # Streamlit 
-st.set_page_config(page_title='Reconocimiento de Dígitos escritos a mano', layout='wide')
-st.title('Reconocimiento de Dígitos escritos a mano')
-st.subheader("Dibuja el digito en el panel  y presiona  'Predecir'")
+st.set_page_config(page_title='Identificación de números manuscritos', layout='wide')
+st.title('Reconocimiento de dígitos manuscritos')
+st.subheader("Escribe el dígito en el panel y haz clic en 'Predecir'.")
 
 # Add canvas component
 # Specify canvas parameters in application
 drawing_mode = "freedraw"
-stroke_width = st.slider('Selecciona el ancho de línea', 1, 30, 15)
+stroke_width = st.slider('Selecciona el tamaño del trazo: mínimo 1, máximo 30, incremento de 5.')
 stroke_color = '#FFFFFF' # Set background color to white
 bg_color = '#000000'
 
@@ -53,13 +53,13 @@ if st.button('Predecir'):
         res = predictDigit(img)
         st.header('El Digito es : ' + str(res))
     else:
-        st.header('Por favor dibuja en el canvas el digito.')
+        st.header('Por favor, dibuja el dígito en el lienzo.')
 
 # Add sidebar
-st.sidebar.title("Acerca de:")
-st.sidebar.text("En esta aplicación se evalua ")
-st.sidebar.text("la capacidad de un RNA de reconocer") 
-st.sidebar.text("digitos escritos a mano.")
-st.sidebar.text("Basado en desarrollo de Vinay Uniyal")
+st.sidebar.title("Respecto a:")
+st.sidebar.text("Este sistema evalúa ")
+st.sidebar.text("La capacidad de una red neuronal artificial para identificar") 
+st.sidebar.text("Dígitos manuscritos")
+st.sidebar.text("Fundado en el trabajo de Vinay Uniyal")
 #st.sidebar.text("GitHub Repository")
 #st.sidebar.write("[GitHub Repo Link](https://github.com/Vinay2022/Handwritten-Digit-Recognition)")
